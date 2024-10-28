@@ -7,15 +7,18 @@ import './App.css'
 const todoList = [
   {
     id: 1,
-    title: "install react",
+    title: "set up React",
+    dueDate: "11/05/2024",
   },
   {
     id: 2,
-    title: "connect with Github",
+    title: "push to Github",
+    dueDate: "11/05/2024",
   },
   {
   id: 3,
   title: "complete assignment",
+  dueDate: "11/05/2024",
 },
 ];
 
@@ -27,11 +30,11 @@ function App() {
       </div>
       <ul>
         {todoList.map ((todo) => (
-          <li key = {todo.id}>{todo.title}</li>
+          <li key = {todo.id}>{todo.title} by: {todo.dueDate}</li>
         ))}
       </ul>
     </>
   )
 }
 
-export default App()
+export default App
