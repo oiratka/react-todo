@@ -1,34 +1,31 @@
-/* Create a new functional React component (see below)
- Declare a function named TodoList
- Export TodoList function as default module
- Add a multi-line return statement to your TodoList function (this is where we will insert JSX)
-hint: use parenthesis for multi-line */
+import TodoListItem from "./TodoListItem";
 
-const todoList = [
-    {
-      id: 1,
-      title: "set up React",
-      dueDate: "11/05/2024",
-    },
-    {
-      id: 2,
-      title: "push to Github",
-      dueDate: "11/05/2024",
-    },
-    {
-    id: 3,
-    title: "complete assignment",
-    dueDate: "11/05/2024",
+const List = [
+  {
+    id: 1,
+    title: "Read the book",
+    dueDate: "11/19/2024",
   },
-  ];
-  
+  {
+    id: 2,
+    title: "Watch the videos",
+    dueDate: "11/19/2024",
+  },
+  {
+    id: 3,
+    title: "Attend sessions",
+    dueDate: "11/19/2024",
+  },
+];
 
 const TodoList = () => {
-    return <ul>
-{todoList.map ((todo) => (
-  <li key = {todo.id}>{todo.title} by: {todo.dueDate}</li>
-))}
-</ul>
-}
+  return (
+    <ul>
+      {List.map((todo) => (
+        <TodoListItem key={todo.id} todo={todo} />
+      ))}
+    </ul>
+  );
+};
 
 export default TodoList;
