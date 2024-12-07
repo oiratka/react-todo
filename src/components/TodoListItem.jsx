@@ -1,11 +1,10 @@
 
 
-const TodoListItem = (props) => {
-  const { title, dueDate } = props.todo;
-
+const TodoListItem = ({ todo }) => {
+  const { title, dueDate } = todo;
   return (
     <li>
-      {title} by: {dueDate}
+      {title} {dueDate}
     </li>
   );
 };
