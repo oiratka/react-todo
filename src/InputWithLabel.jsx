@@ -7,7 +7,7 @@ const InputWithLabel = ({ id, children, value, onChange }) => {
     if (inputRef.current) {
       inputRef.current.focus();
     }
-  }, []);
+  },);
 
   return (
     <>
