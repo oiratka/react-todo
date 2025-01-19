@@ -63,14 +63,13 @@ const App = () => {
   return (
     <BrowserRouter>
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/new">New</Link>
-          </li>
-        </ul>
+        <>
+          <Link to="/">Home</Link>
+        </>
+        <br />
+        <>
+          <Link to="/new">New</Link>
+        </>
       </nav>
       <Routes>
         <Route
