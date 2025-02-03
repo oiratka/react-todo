@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
-import AddToDoForm from "./components/AddToDoForm";
+import AddToDoForm from "./components/AddTodoForm/AddToDoForm";
 import TodoList from "./components/TodoList";
 
 const App = () => {

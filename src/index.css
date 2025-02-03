@@ -1,11 +1,12 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Emilys Candy", serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
+  font-style: normal;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #DE3163;
+  background-color: #FFEDFA;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,11 +29,40 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url(https://images.unsplash.com/photo-1528938102132-4a9276b8e320?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
 }
 
+
 h1 {
-  font-size: 3.2em;
+  font-size: 3.5em;
   line-height: 1.1;
+}
+label{
+  font-size: 1.5em;
+}
+input{
+  background-color: #f9f9f9;
+  margin: 1.2em;
+  padding: 1em;
+  border-radius: 10px;
+}
+li{
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  position: relative; 
+  padding-left: 1.5rem; 
+  font-size: 1.3rem; 
+  border-radius: 50px;
+  margin-bottom: 1em;
+}
+li::before{
+  content: "•"; 
+  color: brown; 
+  position: absolute;
+  left: 5px; 
+  top: 50%;
+  transform: translateY(-50%); 
 }
 
 button {
@@ -42,12 +72,13 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #4B164C;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin-left: 1.2em;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #CCDF92;
 }
 button:focus,
 button:focus-visible {
@@ -64,5 +95,18 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media screen and (max-width:450px){
+  h1{
+    font-size: 1.5em;
+  }
+  label{
+    font-size: 1em;
+  }
+  input{
+    padding: 0.2em;
+    margin: 0.2em;
   }
 }
