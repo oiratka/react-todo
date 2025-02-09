@@ -1,4 +1,5 @@
 
+import styles from './TodoListItem.module.css';
 
 const TodoListItem = ({ todo, onRemoveTodo }) => {
   const { id, title, dueDate } = todo;
@@ -7,9 +8,9 @@ const TodoListItem = ({ todo, onRemoveTodo }) => {
     onRemoveTodo(id);
   }
   return (
-    <li>
+    <li className={styles.ListItem}>
       {title} {dueDate}
-      <button onClick={handleRemove}>Remove</button>
+      <button onClick={handleRemove} className={styles.removeBtn}>Remove</button>
     </li>
   );
 };

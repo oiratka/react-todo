@@ -1,0 +1,28 @@
+.ListItem {
+  color: #b82132;
+  padding: 1.5em;
+  text-align: left;
+  background-color: #ffedfa;
+}
+.removeBtn {
+  background-color: #d12a56;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 450px) {
+  .removeBtn {
+    border-radius: 85px;
+    font-weight: 300;
+    padding: 0.5em;
+  }
+}
+
+@media screen and (max-width: 450px) {
+    .ListItem{
+        padding: 0.7em;
+        font-size: 0.7em;
+    }
+    .removeBtn{
+        padding: 0.2em;
+    }
+}

@@ -1,0 +1,12 @@
+.addBtn {
+  background-color: #ccdf92;
+  cursor: crosshair;
+  font-size: 1.2em;
+}
+
+@media screen and (max-width:450px) {
+  .addBtn {
+    padding: 0.3em;
+    margin-left: 0.1em;
+  }
+}

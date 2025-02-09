@@ -4,7 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-import AddToDoForm from "./components/AddToDoForm";
+import AddToDoForm from "./components/AddTodoForm/AddToDoForm";
 import TodoList from "./components/TodoList";
 
 const App = () => {
