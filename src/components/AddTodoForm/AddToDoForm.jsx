@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import InputWithLabel from "../../InputWithLabel";
+import InputWithLabel from "../InputWithLabel";
 import styles from "./AddToDoForm.module.css";
 import PropTypes from "prop-types";
 
