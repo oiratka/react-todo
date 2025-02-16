@@ -23,7 +23,7 @@ const App = () => {
     };
     const url = `https://api.airtable.com/v0/${
       import.meta.env.VITE_AIRTABLE_BASE_ID
-    }/${import.meta.env.VITE_TABLE_NAME}`;
+    }/${import.meta.env.VITE_TABLE_NAME}?view=CTD&sort[0][field]=Title&sort[0][direction]=asc`;
 
     try {
       const response = await fetch(url, options);
@@ -31,6 +31,15 @@ const App = () => {
         throw new Error(`Error: ${response.status}`);
       }
       const data = await response.json();
+      data.records.sort((objectA, objectB) =>{
+        const titleA = objectA.fields.Title.toLowerCase()
+        const titleB = objectB.fields.Title.toLowerCase();
+
+        if (titleA < titleB) return 1;
+        if (titleA === titleB) return 0;
+        return -1;
+      });
+
       const todos = data.records.map((todo) => ({
         id: todo.id,
         title: todo.fields.Title,
