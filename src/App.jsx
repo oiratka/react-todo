@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-
+import styles from "./components/NewPage.module.css";
 import AddToDoForm from "./components/AddTodoForm/AddToDoForm";
 import TodoList from "./components/TodoList";
+import BackgroundImage from "./components/BackgroundImage/BackgroundImage";
 
 const App = () => {
   const [todoList, setTodoList] = useState(() => {
@@ -21,7 +22,9 @@ const App = () => {
     };
     const url = `https://api.airtable.com/v0/${
       import.meta.env.VITE_AIRTABLE_BASE_ID
-    }/${import.meta.env.VITE_TABLE_NAME}?view=CTD&sort[0][field]=Title&sort[0][direction]=asc`;
+    }/${
+      import.meta.env.VITE_TABLE_NAME
+    }?view=CTD&sort[0][field]=Title&sort[0][direction]=asc`;
 
     try {
       const response = await fetch(url, options);
@@ -29,8 +32,8 @@ const App = () => {
         throw new Error(`Error: ${response.status}`);
       }
       const data = await response.json();
-      data.records.sort((objectA, objectB) =>{
-        const titleA = objectA.fields.Title.toLowerCase()
+      data.records.sort((objectA, objectB) => {
+        const titleA = objectA.fields.Title.toLowerCase();
         const titleB = objectB.fields.Title.toLowerCase();
 
         if (titleA < titleB) return 1;
@@ -41,6 +44,7 @@ const App = () => {
       const todos = data.records.map((todo) => ({
         id: todo.id,
         title: todo.fields.Title,
+        urgency: todo.fields.Urgency,
       }));
       setTodoList(todos);
       setIsLoading(false);
@@ -57,7 +61,7 @@ const App = () => {
     if (!isLoading) {
       localStorage.setItem("savedTodoList", JSON.stringify(todoList));
     }
-  }, [todoList]);
+  }, [todoList, isLoading]);
 
   const addTodo = (newTodo) => {
     setTodoList([...todoList, newTodo]);
@@ -67,20 +71,36 @@ const App = () => {
 
     setTodoList(updatedTodolist);
   };
+
+  const updateUrgency = (id, newUrgency) => {
+    const updatedTodoList = todoList.map((todo) =>
+      todo.id === id ? { ...todo, urgency: newUrgency } : todo
+    );
+
+    setTodoList(updatedTodoList);
+    localStorage.setItem("savedTodoList", JSON.stringify(updatedTodoList));
+  };
+
   return (
     <BrowserRouter>
+      <BackgroundImage />
       <nav>
-        <>
-          <Link to="/">Home</Link>
-        </>
+        <Link to="/">Home</Link>
         <br />
-        <>
-          <Link to="/new">New</Link>
-        </>
+        <Link to="/new">New ToDo</Link>
+        <br />
       </nav>
       <Routes>
         <Route
           path="/"
+          element={
+            <div className={styles.newPage}>
+              <h1>A journey of a thousand miles begins with a single step.</h1>
+            </div>
+          }
+        />
+        <Route
+          path="/new"
           element={
             <div>
               <h1>Todo List</h1>
@@ -89,17 +109,13 @@ const App = () => {
               ) : (
                 <>
                   <AddToDoForm onAddTodo={addTodo} />
-                  <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+                  <TodoList
+                    todoList={todoList}
+                    onRemoveTodo={removeTodo}
+                    onUpdateUrgency={updateUrgency}
+                  />
                 </>
               )}
-            </div>
-          }
-        />
-        <Route
-          path="/new"
-          element={
-            <div>
-              <h1>New Todo List</h1>
             </div>
           }
         />

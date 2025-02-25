@@ -4,6 +4,23 @@
   text-align: left;
   background-color: #ffedfa;
 }
+.selectUrgency{
+  background-color: rgb(235, 228, 223);
+  color:black;
+  border-radius: 13px;
+  padding: 2px;
+}
+.urgency-high{
+  background-color: #b2121f;
+  color: aliceblue;
+}
+.urgency-medium{
+  background-color: orange;
+}
+
+.urgency-low{
+  background-color: rgb(155, 194, 96);
+}
 .removeBtn {
   background-color: #d12a56;
   cursor: pointer;
