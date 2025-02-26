@@ -87,8 +87,7 @@ const App = () => {
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
       }
-
-      const data = await response.json();
+      
       fetchdata();
     } catch (error) {
       console.log(error.message);
