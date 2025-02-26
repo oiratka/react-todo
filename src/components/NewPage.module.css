@@ -1,0 +1,10 @@
+
+.newPage {
+    min-height: 100%;
+}
+.newPage {
+    background-color: #f0f0f0;
+    padding: 1em;
+    text-align: center;
+    align-content: center;
+  }

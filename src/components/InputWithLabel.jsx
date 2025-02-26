@@ -13,7 +13,7 @@ const InputWithLabel = ({ id, children, value, onChange }) => {
 
   return (
     <>
-      <label htmlFor="{id}">{children}</label>
+      <label htmlFor={id}>{children}</label>
       <input
         ref={inputRef}
         type="text"
