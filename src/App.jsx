@@ -100,25 +100,27 @@ const App = () => {
 
     setTodoList(updatedTodolist);
 
-    const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}/${id}`;
+    const url = `https://api.airtable.com/v0/${
+      import.meta.env.VITE_AIRTABLE_BASE_ID
+    }/${import.meta.env.VITE_TABLE_NAME}/${id}`;
 
     const deleteRequest = {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
         Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
-      }
+      },
     };
 
     try {
-      const response = await fetch (url, deleteRequest);
+      const response = await fetch(url, deleteRequest);
       if (!response.ok) {
-throw new Error (`Error: ${response.status}`);
+        throw new Error(`Error: ${response.status}`);
       }
 
       fetchdata();
     } catch (error) {
       console.log(error.message);
-    setTodoList (prev => [...prev, todoList.find(todo => todo.id ===id)])
+      setTodoList((prev) => [...prev, todoList.find((todo) => todo.id === id)]);
     }
   };
 
