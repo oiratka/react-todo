@@ -87,8 +87,16 @@ const App = () => {
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
       }
-      
-      fetchdata();
+
+      const responseData = await response.json();
+      const addedTodo = {
+        id: responseData.id,
+        title: newTodo.title,
+        urgency: newTodo.urgency, // Ensure urgency stays correct after adding the task
+      };
+
+      // Update the todoList state with the newly added task
+      setTodoList((prevList) => [...prevList, addedTodo]);
     } catch (error) {
       console.log(error.message);
     }
@@ -115,8 +123,6 @@ const App = () => {
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
       }
-
-      fetchdata();
     } catch (error) {
       console.log(error.message);
       setTodoList((prev) => [...prev, todoList.find((todo) => todo.id === id)]);
