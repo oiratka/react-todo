@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import styles from "./TodoListItem.module.css";
 import PropTypes from "prop-types";
 
@@ -27,8 +29,8 @@ const TodoListItem = ({ todo, onRemoveTodo, onUpdateUrgency }) => {
         <option value="medium">Medium</option>
         <option value="high">High</option>
       </select>
-      <button onClick={handleRemove} className={styles.removeBtn}>
-        Remove
+      <button onClick={handleRemove} className={styles.trashIcon}>
+         <FontAwesomeIcon icon={faTrashAlt} />
       </button>
     </li>
   );

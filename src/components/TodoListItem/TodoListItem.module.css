@@ -11,23 +11,24 @@
   padding: 2px;
 }
 .urgency-high{
-  background-color: #b2121f;
+  background: linear-gradient(to right, #e06630 0%, #ab0d07 100%);
   color: aliceblue;
 }
 .urgency-medium{
-  background-color: orange;
+  background: linear-gradient(to right, #f3a833 0%, #3c5a38 100%);
 }
 
 .urgency-low{
-  background-color: rgb(155, 194, 96);
+  background: linear-gradient(to right, #e8f1df 0%, #3c5a38 100%)
 }
-.removeBtn {
+.trashIcon {
   background-color: #d12a56;
   cursor: pointer;
+  padding: 2px;
 }
 
 @media screen and (max-width: 450px) {
-  .removeBtn {
+  .trashIcon {
     border-radius: 85px;
     font-weight: 300;
     padding: 0.5em;

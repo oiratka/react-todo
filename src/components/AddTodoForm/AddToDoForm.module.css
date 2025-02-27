@@ -1,7 +1,8 @@
 .addBtn {
-  background-color: #ccdf92;
+  background-color: #a3dbd3;
   cursor: crosshair;
   font-size: 1.2em;
+  padding: 0.4em;
 }
 
 @media screen and (max-width:450px) {
