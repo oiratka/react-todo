@@ -5,6 +5,7 @@ import styles from "./components/NewPage.module.css";
 import AddToDoForm from "./components/AddTodoForm/AddToDoForm";
 import TodoList from "./components/TodoList";
 import BackgroundImage from "./components/BackgroundImage/BackgroundImage";
+import HomePage from "./components/HomePage/HomePage";
 
 const App = () => {
   const [todoList, setTodoList] = useState(() => {
@@ -145,8 +146,8 @@ const App = () => {
         <Route
           path="/"
           element={
-            <div className={styles.newPage}>
-              <h1>A journey of a thousand miles begins with a single step.</h1>
+            <div>
+              <HomePage />
             </div>
           }
         />
