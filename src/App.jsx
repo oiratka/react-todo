@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import styles from "./components/NewPage.module.css";
 import AddToDoForm from "./components/AddTodoForm/AddToDoForm";
 import TodoList from "./components/TodoList";
 import BackgroundImage from "./components/BackgroundImage/BackgroundImage";
