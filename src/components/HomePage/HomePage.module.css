@@ -1,0 +1,11 @@
+
+.homePage {
+    min-height: 100%;
+}
+.container {
+    background-color: #f0f0f0;
+    padding: 1em;
+    text-align: center;
+    align-content: center;
+    border-radius: 50px;
+  }
